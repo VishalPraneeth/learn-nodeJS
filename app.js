@@ -18,9 +18,12 @@ app.get('/', (req, res) => {
 
 app.get('/about', (req, res) => {
     // res.send('<p> about page </p>');
-    res.sendFile('./views/about.html', { root: __dirname });
+    res.render('about');
+});
+app.get('/blogs/create', (req, res) => {
+    res.render('create');
 });
 
 app.use((req, res) => {
-    res.sendFile('./views/404.html', { root: __dirname });
+    res.status(404).render('404');
 });
